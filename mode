@@ -1,0 +1,6 @@
+#Develop a Python program that determines the mode of a list of n numbers, assume only one mode exists in the provided test cases.
+
+number=list(map(int,input("Enter your input: ").split()))
+mode = max(set(number),key=number.count)
+
+print(mode)

@@ -1,0 +1,8 @@
+#Write a Python program to calculate the arithmetic mean of n numbers, rounding the result to the nearest integer.
+
+numbers = list(map(int, input("Enter your number: ").split()))
+
+mean = sum(numbers)/len(numbers)
+
+print(round(mean))
+#

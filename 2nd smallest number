@@ -1,0 +1,8 @@
+#Create a Python program that finds the second smallest number in a list of positive integers (including zero).
+
+number= list(map(int,input("Enter your input: ").split()))
+
+number = [i for i in number if i >= 0]
+
+unique_number=sorted(set(number))
+print(unique_number[1])

@@ -1,0 +1,18 @@
+#Create a Python program that takes a list of integers, reverses the list, adds the values at even indices from both the original 
+#and reversed lists, and creates a new list with the result.
+
+L= list(map(int, input().split()))
+result =[]
+
+for i in range(0,len(L)):
+    if i%2 ==0:
+        L1=L[::-1]
+        L2=L[i]+L1[i]
+        result.append(L2)
+    else:
+        result.append(L[i])
+
+        # for i in result:
+        #     print(i,end=" ")
+
+print(*result)        # unpacking operator

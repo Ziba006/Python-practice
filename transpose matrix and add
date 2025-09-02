@@ -1,0 +1,23 @@
+#create a Python program that adds the transpose of a given matrix by a scalar. The program should prompt the user to input the dimensions of the matrix, 
+the elements of the matrix, and the scalar value. The program should then compute the transpose of the matrix, add it by the scalar, and print the resulting matrix.
+
+def transpose(matrix, n, m):
+    transposed_matrix = [[matrix[j][i] for j in range(n)] for i in range(m)]
+    return transposed_matrix
+
+def add_scalar_to_matrix(matrix, scalar, n, m):
+    return [[matrix[i][j] + scalar for j in range(m)] for i in range(n)]
+
+def main():
+    n = int(input(""))
+    m = int(input(""))
+    matrix = []
+    for i in range(n):
+        row = list(map(int, input().split()))
+        matrix.append(row)
+    scalar = int(input(""))
+    transposed_matrix = transpose(matrix, n, m)
+    result_matrix = add_scalar_to_matrix(transposed_matrix, scalar, m, n)
+    for row in result_matrix:
+        print(" ".join(map(str, row)))
+main()

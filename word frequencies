@@ -1,0 +1,23 @@
+The Mystery of Word Frequencies
+
+You are tasked with analyzing a mysterious message that was intercepted. The message seems to contain a series of repeated words, and the challenge is to count how many times each word appears. To solve this, you must write a Python program that takes a string of text and counts the frequency of each word.
+
+Make sure your program is case-insensitive, as the secret message is a mix of upper and lower case letters.
+
+After counting the occurrences of each word, display the results.
+
+
+Input Format:  A line of text
+
+Output format: For all the unique words in the sentence, word: followed by frequency.
+
+from collections import Counter
+
+def count_word_frequencies(text):
+    words = text.lower().split()
+    word_count = Counter(words)
+    for word, count in word_count.items():
+        print(f"{word}: {count}")
+input_text = input("")
+count_word_frequencies(input_text)
+#

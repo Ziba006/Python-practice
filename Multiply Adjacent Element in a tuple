@@ -1,0 +1,12 @@
+Multiply Adjacent Elements in a Tuple
+
+In many data processing tasks, cumulative operations like summation or multiplication of adjacent elements are required. This problem focuses on adjacent element multiplication,
+where each pair of consecutive elements in a given tuple is multiplied to generate a new tuple. The input tuple can contain both positive and negative integers, and the goal is to 
+compute a resultant tuple where each element is the product of two adjacent elements in the original tuple.
+
+ #
+def multiply_adjacent(t):
+    return tuple(t[i] * t[i+1] for i in range(len(t) - 1))
+t = tuple(map(int, input().strip("()").split(", ")))
+print(multiply_adjacent(t),end="")
+#

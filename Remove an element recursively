@@ -1,0 +1,24 @@
+Removing an element Recursively:
+
+Write a recursive function delete_elements in Python that removes all occurrences of a specified item from a list, creating and returning a new list without modifying the input list.
+
+ ef delete_elements(lst, item):
+    if not lst:  # Base case: If the list is empty, return an empty list
+        return []
+    if lst[0] == item:  # If the current item matches, skip it
+        return delete_elements(lst[1:], item)
+    else:
+        # Keep the current item if it doesn't match
+        return [lst[0]] + delete_elements(lst[1:], item)
+
+# Read inputs for the test case
+lst = list(map(int, input().split()))  # Read the list
+item = int(input())  # Read the item to remove
+
+new_lst = delete_elements(lst, item)
+
+# Print the result as a space-separated string
+print(" ".join(map(str, new_lst)),end="")
+lst = list(map(int, input().split()))
+item = int(input())
+print(" ".join(map(str, delete_elements(lst, item))))

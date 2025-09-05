@@ -1,0 +1,23 @@
+Remove Anagram Duplicates and Sort
+
+You are given a sequence of words. Two words are anagrams if they contain the same letters in a different order. Your task is to remove any word that is an anagram of an earlier word while keeping the first occurrence. Finally, print the remaining words in sorted order.
+
+Input Format:
+
+A single line containing space-separated words, where each word consists of lowercase letters only.
+
+Output Format:
+
+A single line containing the remaining words in sorted order, space-separated.
+
+#
+def remove_anagram_duplicates(words):
+    seen, res = set(), []
+    for w in words:
+        s = "".join(sorted(w))
+        if s not in seen:
+            seen.add(s)
+            res.append(w)
+    return " ".join(sorted(res))
+print(remove_anagram_duplicates(input().split()), end="")
+#

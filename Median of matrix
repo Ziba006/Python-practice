@@ -1,0 +1,41 @@
+Median of Matrix
+
+You are given a row-wise sorted matrix of size n×m, where both the number of rows and the number of columns are always odd. Your task is to find the median of the matrix.
+
+The median is the middle number in a sorted list of numbers. In case the list has an even number of elements, the median is the leftmost of the two middle elements.
+
+The matrix is sorted row-wise, but the entire matrix is not necessarily sorted.
+
+You need to find the median from the matrix when all the elements are sorted in ascending order.
+
+Input Format:
+
+The first line contains two integers n and m, representing the number of rows and columns in the matrix.
+
+The next n lines each contain m space-separated integers representing a row of the matrix.
+
+Output Format:
+
+Print the median of the matrix.
+
+#
+def find_median(n, m, matrix):
+    # Flatten the matrix into a single list
+    flattened = []
+    for row in matrix:
+        flattened.extend(row)
+    
+    # Sort the list
+    flattened.sort()
+    
+    # The median is the middle element in the sorted list
+    median_index = len(flattened) // 2
+    return flattened[median_index]
+
+# Input
+n, m = map(int, input().split())
+matrix = [list(map(int, input().split())) for _ in range(n)]
+
+# Output the median
+print(find_median(n, m, matrix),end="")
+#

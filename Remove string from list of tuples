@@ -1,0 +1,15 @@
+Remove Strings from a List of Tuples
+
+You are given a list of tuples, where each tuple contains a mix of integers and strings. Your task is to remove all string elements from each tuple while keeping the original structure of the list.
+
+·       If a tuple becomes empty after removing strings, it should be represented as an empty tuple ().
+
+·       The number of tuples in the output list must be the same as in the input list.
+
+#
+def remove_strings(lst):
+    return [tuple(x for x in t if not isinstance(x, str)) for t in lst]
+import ast
+inp = ast.literal_eval(input().strip())
+print(remove_strings(inp),end="")
+#

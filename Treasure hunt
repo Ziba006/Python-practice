@@ -1,0 +1,57 @@
+The Treasure Hunt
+
+You are part of an elite team of treasure hunters, and your latest mission is to find the hidden treasure in a mysterious ancient temple. Inside the temple, you discover a series of enchanted scrolls containing arrays of magical numbers. The numbers are encrypted in different arrays, and each scroll has a clue indicating which element in the array holds the key to the treasure.
+
+You are given one of these arrays, and the clue on the scroll tells you that the treasure is hidden inside the kth smallest number in that array. Your task is to figure out the kth smallest number from the array, where k is smaller than the size of the array, and return it as your answer.
+
+The treasure hunters in your team trust you with this task, and the sooner you find the key, the sooner they can open the vault. So, be efficient and find the answer quickly!
+
+
+#
+import random
+
+def partition(arr, low, high):
+    pivot = arr[high]
+    i = low
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
+    arr[i], arr[high] = arr[high], arr[i]
+    return i
+
+def quickselect(arr, low, high, k):
+    if low == high:
+        return arr[low]
+    
+    pivot_index = random.randint(low, high)
+    arr[pivot_index], arr[high] = arr[high], arr[pivot_index]
+    
+    partition_index = partition(arr, low, high)
+    
+    if partition_index == k:
+        return arr[partition_index]
+    elif partition_index > k:
+        return quickselect(arr, low, partition_index - 1, k)
+    else:
+        return quickselect(arr, partition_index + 1, high, k)
+
+def find_kth_smallest(arr, k):
+    if not arr:
+        return 'The array is empty'
+    
+    if not isinstance(k, int) or k <= 0:
+        return 'k should be a positive integer'
+
+    if k > len(arr):
+        return 'The clue k should be smaller than or equal to the list size'
+    
+    return quickselect(arr, 0, len(arr) - 1, k - 1)
+
+try:
+    arr = list(map(int, input().split()))
+    k = int(input())
+    print(find_kth_smallest(arr, k), end="")
+except ValueError:
+    print("Invalid input! Please enter valid integers.")
+#
